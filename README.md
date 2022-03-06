@@ -1,6 +1,6 @@
 # flask-template
 
-- Template Flask implementation
+- Flask implementation to OpenAPI specification
 
 ### References
 

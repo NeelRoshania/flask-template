@@ -10,11 +10,11 @@
 1. `python -m venv flask/.flask` and `pip3 install --upgrade pip` 
 2. Activate enviroment
 3. Modify `setup.cfg` and `src`
-4. Navigate into `flask` then `pytest -v`
+4. Run configuration test at root, `pytest -v`
 
 **Running the app**
 1. `export FLASK_ENV=development`
-2. cd `flask/yourapplication`
+2. cd `flask`
 2. `python -m app`
 
 **Jupyter kernel setup**

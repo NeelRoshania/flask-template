@@ -15,10 +15,6 @@ paths:
       responses:
         '200':
           description: "good response"
-        '204':
-          description: "empty response"
-        '404':
-          description: "cannot find url"
 components:
   responses:
     UnauthorizedError:

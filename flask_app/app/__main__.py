@@ -1,7 +1,5 @@
-from flask import send_from_directory
 from app import create_app
-from os.path import dirname, join
-from pathlib import Path
+from asgiref.wsgi import WsgiToAsgi
 
 """
 Resources
@@ -9,9 +7,11 @@ Resources
     - OpenAPI specification: https://swagger.io/specification/
 """
 
+# production
+app = create_app()
+asgi_app = WsgiToAsgi(app)
 
+# development only
 if __name__ == "__main__":
-
-    # start the server with auto reloading
-    app = create_app() # development only
+    app = create_app()
     app.run()

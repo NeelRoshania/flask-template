@@ -2,7 +2,7 @@ import connexion
 import pkg_resources
 from connexion.resolver import MethodViewResolver, MethodResolver
 
-API_SPEC = pkg_resources.resource_filename(__name__, "api/swagger.yaml")
+API_SPEC = pkg_resources.resource_filename(__name__, "api/openapi.yaml")
 
 # application factory function
 def create_app(**kwargs):
@@ -14,7 +14,7 @@ def create_app(**kwargs):
     app.add_api(
         specification=API_SPEC, 
         resolver=MethodViewResolver(f'{__name__}.endpoints'),
-        arguments={"custom_argument": "custom_value"}
+        arguments={"custom_key": "custom_value"}
     )
 
     return app

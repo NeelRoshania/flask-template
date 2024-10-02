@@ -6,12 +6,15 @@ info:
   contact:
     name: Neel Roshania
     email: nroshania@gmail.com
-security:
-  - {}
+servers:
+  # - url: http://api.example.com/v1
+  #   description: Main production server
+  - url: http://localhost:8080
+    description: Local development server
 paths:
   /flasktemplate:
     get:
-      description: Testing of OPEN API.
+      description: General get requests.
       responses:
         '200':
           description: "good response"

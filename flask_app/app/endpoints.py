@@ -7,8 +7,8 @@ class FlasktemplateView(MethodView):
     Views for endpoints which return xxxxx
     """
 
-    def post(self):
-        pass
+    def post(self, body:dict):
+        return make_response(f'body recieved: {body}', 200)
 
     def put(self):
         pass

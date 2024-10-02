@@ -11,7 +11,7 @@ Resources
 app = create_app()
 asgi_app = WsgiToAsgi(app)
 
-# development only
+# development
 if __name__ == "__main__":
     app = create_app()
     app.run()

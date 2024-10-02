@@ -8,7 +8,7 @@ class FlasktemplateView(MethodView):
     """
 
     def post(self, body:dict):
-        return make_response(f'body recieved: {body}', 200)
+        return make_response(f'{body}', 200)
 
     def put(self):
         pass
@@ -17,8 +17,6 @@ class FlasktemplateView(MethodView):
         pass
 
     def get(self, **kwargs):
-        print(f"Received kwargs: {kwargs}")  # Log all keyword arguments
-        print(f"Request args: {request.args}")  # Log query parameters
         return make_response(f'get: url configured correctly kwargs: {kwargs}', 200)
 
     # def search(self, **kwargs):

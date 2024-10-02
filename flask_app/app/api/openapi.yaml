@@ -1,4 +1,7 @@
+# https://spec.openapis.org/oas/v3.1.0.html#openapi-specification
+
 openapi: 3.0.3
+
 info:
   title: Flask API Template
   version: 0.1.0
@@ -6,19 +9,74 @@ info:
   contact:
     name: Neel Roshania
     email: nroshania@gmail.com
+
 servers:
   # - url: http://api.example.com/v1
   #   description: Main production server
   - url: http://localhost:8080
     description: Local development server
+
 paths:
   /flasktemplate:
     get:
-      description: General get requests.
+      description: Return an array of objects of type ResponseObject (id, request, response)
+      tags:
+        - Getters
+      # a requestBody is not required here
       responses:
         '200':
-          description: "good response"
+          description: successfull request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResponseObject' # a reference to a component defined below
+        '500':
+          description: "server error"
+    post:
+      description: Create a RequestObject using a dictionary (id, request)
+      tags:
+        - Posters
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+                - request
+              properties:
+                id:
+                  type: integer
+                request:
+                  type: string
+      responses:
+        '201':
+          description: Item created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestObject'
+        '400':
+          description: Invalid input data
+
 components:
-  responses:
-    UnauthorizedError:
-      description: API key is missing or invalid
+  schemas:
+    ResponseObject:
+      type: object
+      properties:
+        id:
+          type: integer
+        request:
+          type: string
+        response:
+          type: string
+    RequestObject:
+      type: object
+      properties:
+        id:
+          type: integer
+        request:
+          type: string

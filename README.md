@@ -27,9 +27,6 @@
     - cd `flask_app` then `hypercorn app.__main__:app --bind 0.0.0.0:8000` 
 3. `pytest -v tests`
 
-**Development - Running the app**
-TBD (`uvicorn app:app --host 0.0.0.0 --port 8000`)
-
 **Jupyter kernel setup**
 1. `jupyter kernelspec uninstall .example_env` - remove existing kernels called .example_env
 2. `python -m ipykernel install --user --name=.example_env`- install new kernel

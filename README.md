@@ -12,10 +12,13 @@
 3. Modify `setup.cfg` and `src`
 4. Run configuration test at root, `pytest -v`
 
-**Running the app**
+**Development - Running the app**
 1. `export FLASK_ENV=development`
 2. cd `flask`
-2. `python -m app`
+2. `python -m app
+
+**Development - Running the app**
+TBD (`uvicorn app:app --host 0.0.0.0 --port 8000`)
 
 **Jupyter kernel setup**
 1. `jupyter kernelspec uninstall .example_env` - remove existing kernels called .example_env

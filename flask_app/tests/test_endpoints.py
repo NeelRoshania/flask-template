@@ -16,3 +16,13 @@ def test_post_flasktemplate():
     response = requests.post(url=ENDPOINT, json=data)
 
     assert response.text == str(data)
+
+def test_improper_schema():
+    import requests
+
+    ENDPOINT = 'http://127.0.0.1:8000/flasktemplate'
+    headers = {'Content-Type': 'application/json'}
+    data = {"id": 1, "requests": "test_requests"}
+
+    response = requests.post(url=ENDPOINT, json=data)
+    assert "Bad Request" in response.text
